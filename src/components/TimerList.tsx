@@ -67,22 +67,22 @@ export function TimerList({
                 <div className="flex text-center justify-center flex-wrap" style={{ gap: "12px", margin: "0 auto" }}>
                   <button
                     onClick={() => onPlay(timer)}
-                    style={{ fontSize: "18px", paddingLeft: "32px", paddingRight: "32px", paddingTop: "12px", paddingBottom: "12px", flex: "1 1 auto", minWidth: "100px", fontFamily: "'Futura', 'Trebuchet MS', sans-serif", backgroundColor: "black", color: "white" }}
-                    className="rounded-full border-2 border-black font-semibold transition-all duration-300 hover:opacity-70"
+                    style={{ fontSize: "18px", paddingLeft: "32px", paddingRight: "32px", paddingTop: "12px", paddingBottom: "12px", fontFamily: "'Futura', 'Trebuchet MS', sans-serif", backgroundColor: "black", color: "white", border: "2px solid black", borderRadius: "9999px", maxWidth: "120px" }}
+                    className="font-semibold transition-all duration-300 hover:opacity-70"
                   >
                     PLAY
                   </button>
                   <button
                     onClick={() => onEdit(timer)}
-                    style={{ fontSize: "18px", paddingLeft: "32px", paddingRight: "32px", paddingTop: "12px", paddingBottom: "12px", flex: "1 1 auto", minWidth: "100px", fontFamily: "'Futura', 'Trebuchet MS', sans-serif", color: "black" }}
-                    className="rounded-full border-2 border-black bg-transparent font-semibold transition-all duration-300 hover:opacity-70"
+                    style={{ fontSize: "18px", paddingLeft: "32px", paddingRight: "32px", paddingTop: "12px", paddingBottom: "12px", fontFamily: "'Futura', 'Trebuchet MS', sans-serif", color: "black", border: "2px solid black", backgroundColor: "white", borderRadius: "9999px", maxWidth: "120px" }}
+                    className="font-semibold transition-all duration-300 hover:opacity-70"
                   >
                     EDIT
                   </button>
                   <button
                     onClick={() => onDelete(timer)}
-                    style={{ fontSize: "18px", paddingLeft: "32px", paddingRight: "32px", paddingTop: "12px", paddingBottom: "12px", flex: "1 1 auto", minWidth: "100px", fontFamily: "'Futura', 'Trebuchet MS', sans-serif", color: "black" }}
-                    className="rounded-full border-2 border-black bg-transparent font-semibold transition-all duration-300 hover:opacity-70"
+                    style={{ fontSize: "18px", paddingLeft: "32px", paddingRight: "32px", paddingTop: "12px", paddingBottom: "12px", fontFamily: "'Futura', 'Trebuchet MS', sans-serif", color: "black", border: "2px solid black", backgroundColor: "white", borderRadius: "9999px", maxWidth: "120px" }}
+                    className="font-semibold transition-all duration-300 hover:opacity-70"
                   >
                     DELETE
                   </button>
