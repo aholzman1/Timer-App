@@ -150,7 +150,7 @@ export function TimerForm({
           </button>
         </div>
 
-        <div className="space-y-6" style={{ marginLeft: "5px", marginRight: "5px", display: "flex", flexDirection: "column", gap: "20px" }}>
+        <div className="space-y-6" style={{ marginLeft: "3px", marginRight: "3px", display: "flex", flexDirection: "column", gap: "20px" }}>
           {exercises.map((exercise, index) => (
             <div
               key={exercise.id}
@@ -165,7 +165,7 @@ export function TimerForm({
                   <button
                     type="button"
                     onClick={() => removeExercise(exercise.id)}
-                    style={{ fontSize: "14px", paddingLeft: "24px", paddingRight: "24px", paddingTop: "8px", paddingBottom: "8px", fontFamily: "'Futura', 'Trebuchet MS', sans-serif", color: "black", border: "2px solid black", backgroundColor: "white", borderRadius: "9999px" }}
+                    style={{ fontSize: "14px", paddingLeft: "24px", paddingRight: "24px", paddingTop: "8px", paddingBottom: "8px", fontFamily: "'Futura', 'Trebuchet MS', sans-serif", color: "white", border: "2px solid black", backgroundColor: "black", borderRadius: "9999px" }}
                     className="font-semibold transition-all duration-300 hover:opacity-70"
                   >
                     Remove
