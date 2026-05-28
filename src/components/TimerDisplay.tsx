@@ -288,7 +288,7 @@ export function TimerDisplay({ timer, onComplete, onBack }: TimerDisplayProps) {
       </div>
 
       {/* Controls - Under Timer */}
-      <div className="flex justify-center items-center gap-1" style={{ marginTop: "0px", marginBottom: "8px" }}>
+      <div className="flex justify-center items-center gap-1" style={{ marginTop: "-6px", marginBottom: "2px" }}>
         {/* Close Button */}
         <button
           onClick={onBack}
@@ -344,7 +344,7 @@ export function TimerDisplay({ timer, onComplete, onBack }: TimerDisplayProps) {
 
       {/* Next Exercise Preview - Bottom */}
       {state.currentExerciseIndex < totalExercises - 1 && (
-        <div className="text-center border-4 flex-shrink-0" style={{ width: "clamp(260px, 95%, 480px)", borderRadius: "20px", paddingTop: "10px", paddingBottom: "10px", paddingLeft: "12px", paddingRight: "12px", backgroundColor: timer.exercises[state.currentExerciseIndex + 1].color || "#000000", borderColor: "#000000", marginTop: "4px" }}>
+        <div className="text-center border-4 flex-shrink-0" style={{ width: "clamp(260px, 95%, 480px)", borderRadius: "20px", paddingTop: "10px", paddingBottom: "10px", paddingLeft: "12px", paddingRight: "12px", backgroundColor: timer.exercises[state.currentExerciseIndex + 1].color || "#000000", borderColor: "#000000", marginTop: "0px" }}>
           <p style={{ fontSize: "clamp(12px, 2.5vw, 16px)", color: getTextColor(timer.exercises[state.currentExerciseIndex + 1].color || "#000000") }} className="font-bold uppercase tracking-wider mb-1 opacity-100">UP NEXT...</p>
           <p style={{ fontSize: "clamp(18px, 4vw, 24px)", color: getTextColor(timer.exercises[state.currentExerciseIndex + 1].color || "#000000") }} className="font-bold">
             {timer.exercises[state.currentExerciseIndex + 1].name}
