@@ -170,7 +170,7 @@ export function TimerForm({
                   >
                     Remove
                   </button>
-                )}}
+                )}
               </div>
 
               <div className="space-y-4">
