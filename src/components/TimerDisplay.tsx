@@ -240,7 +240,6 @@ export function TimerDisplay({ timer, onComplete, onBack }: TimerDisplayProps) {
   };
 
   const elapsedTime = getElapsedTime();
-  const progress = (elapsedTime / totalWorkoutDuration) * 100;
 
   return (
     <div className="flex flex-col items-center justify-between min-h-screen text-center" style={{ width: "100%", paddingTop: "50px", paddingBottom: "50px", paddingLeft: "20px", paddingRight: "20px", backgroundColor: isResting ? "#d1d5db" : currentExerciseColor, color: isResting ? "#000000" : getTextColor(currentExerciseColor), boxSizing: "border-box" }}>
