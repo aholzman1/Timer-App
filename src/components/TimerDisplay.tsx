@@ -10,18 +10,6 @@ interface TimerDisplayProps {
   onBack: () => void;
 }
 
-// Helper function to lighten a hex color
-function lightenColor(hex: string, percent: number): string {
-  const num = parseInt(hex.replace("#", ""), 16);
-  const amt = Math.round(2.55 * percent);
-  const R = Math.min(255, (num >> 16) + amt);
-  const G = Math.min(255, (num >> 8 & 0x00FF) + amt);
-  const B = Math.min(255, (num & 0x0000FF) + amt);
-  return "#" + (0x1000000 + (R < 255 ? R : 255) * 0x10000 +
-    (G < 255 ? G : 255) * 0x100 + (B < 255 ? B : 255))
-    .toString(16).slice(1);
-}
-
 // Helper function to determine if text should be light or dark
 function getTextColor(hex: string): string {
   const num = parseInt(hex.replace("#", ""), 16);
@@ -255,7 +243,7 @@ export function TimerDisplay({ timer, onComplete, onBack }: TimerDisplayProps) {
   const progress = (elapsedTime / totalWorkoutDuration) * 100;
 
   return (
-    <div className="flex flex-col items-center justify-between text-center" style={{ width: "100%", height: "100vh", marginTop: "0", marginBottom: "0", paddingTop: "50px", paddingBottom: "50px", paddingLeft: "40px", paddingRight: "40px", backgroundColor: isResting ? "#d1d5db" : currentExerciseColor, color: isResting ? "#000000" : getTextColor(currentExerciseColor), boxSizing: "border-box" }}>
+    <div className="flex flex-col items-center justify-between min-h-screen text-center" style={{ width: "100%", paddingTop: "50px", paddingBottom: "50px", paddingLeft: "20px", paddingRight: "20px", backgroundColor: isResting ? "#d1d5db" : currentExerciseColor, color: isResting ? "#000000" : getTextColor(currentExerciseColor), boxSizing: "border-box" }}>
       {/* Top Stats Row - ELAPSED, INTERVAL, REMAINING */}
       <div className="w-full pt-4 pb-2">
         <div className="flex justify-around items-start max-w-2xl mx-auto">
