@@ -101,7 +101,7 @@ export function TimerForm({
         <h2 style={{ fontSize: "48px" }} className="font-bold text-black mb-6">
           {initialTimer ? "EDIT TIMER" : "CREATE NEW TIMER"}
         </h2>
-        <div style={{ height: "2px", backgroundColor: "black", marginTop: "16px", marginLeft: "-40px", marginRight: "-40px" }}></div>
+        <div style={{ height: "2px", backgroundColor: "black", marginTop: "16px", marginLeft: "40px", marginRight: "40px" }}></div>
       </div>
 
       <div style={{ marginTop: "5px", marginBottom: "32px" }}>
@@ -133,7 +133,7 @@ export function TimerForm({
         />
       </div>
 
-      <div style={{ height: "2px", backgroundColor: "black", marginTop: "16px", marginLeft: "-40px", marginRight: "-40px", marginBottom: "16px" }}></div>
+      <div style={{ height: "2px", backgroundColor: "black", marginTop: "16px", marginLeft: "40px", marginRight: "40px", marginBottom: "16px" }}></div>
 
       <div style={{ marginBottom: "32px" }}>
         <div className="flex justify-center items-center mb-6">
@@ -150,7 +150,7 @@ export function TimerForm({
           </button>
         </div>
 
-        <div className="space-y-6" style={{ marginLeft: "20px", marginRight: "20px", display: "flex", flexDirection: "column", gap: "20px" }}>
+        <div className="space-y-6" style={{ marginLeft: "10px", marginRight: "10px", display: "flex", flexDirection: "column", gap: "20px" }}>
           {exercises.map((exercise, index) => (
             <div
               key={exercise.id}
@@ -236,7 +236,7 @@ export function TimerForm({
         <button
           type="button"
           onClick={onCancel}
-          style={{ fontSize: "18px", paddingLeft: "32px", paddingRight: "32px", paddingTop: "12px", paddingBottom: "12px", fontFamily: "'Futura', 'Trebuchet MS', sans-serif", color: "black", border: "2px solid black", backgroundColor: "white", borderRadius: "9999px", maxWidth: "120px" }}
+          style={{ fontSize: "18px", paddingLeft: "32px", paddingRight: "32px", paddingTop: "12px", paddingBottom: "12px", fontFamily: "'Futura', 'Trebuchet MS', sans-serif", color: "black", border: "2px solid black", backgroundColor: "white", borderRadius: "9999px", maxWidth: "120px", display: "flex", alignItems: "center", justifyContent: "center" }}
           className="font-semibold transition-all duration-300 hover:opacity-70"
         >
           CANCEL
