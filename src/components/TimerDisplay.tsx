@@ -242,45 +242,45 @@ export function TimerDisplay({ timer, onComplete, onBack }: TimerDisplayProps) {
   const elapsedTime = getElapsedTime();
 
   return (
-    <div className="flex flex-col items-center justify-between min-h-screen text-center" style={{ width: "100%", paddingTop: "50px", paddingBottom: "50px", paddingLeft: "20px", paddingRight: "20px", backgroundColor: isResting ? "#d1d5db" : currentExerciseColor, color: isResting ? "#000000" : getTextColor(currentExerciseColor), boxSizing: "border-box" }}>
+    <div className="flex flex-col items-center justify-between min-h-screen text-center" style={{ width: "100%", paddingTop: "30px", paddingBottom: "30px", paddingLeft: "10px", paddingRight: "10px", backgroundColor: isResting ? "#d1d5db" : currentExerciseColor, color: isResting ? "#000000" : getTextColor(currentExerciseColor), boxSizing: "border-box", margin: "0", overflow: "hidden" }}>
       {/* Top Stats Row - ELAPSED, INTERVAL, REMAINING */}
-      <div className="w-full pt-4 pb-2">
-        <div className="flex justify-around items-start max-w-2xl mx-auto">
+      <div className="w-full pt-2 pb-2">
+        <div className="flex justify-around items-start">
           <div className="text-center">
-            <p style={{ fontSize: "24px" }} className="font-bold mb-2">ELAPSED</p>
-            <p style={{ fontSize: "34px" }} className="font-bold">{formatTime(elapsedTime)}</p>
+            <p style={{ fontSize: "clamp(14px, 2vw, 18px)" }} className="font-bold mb-1">ELAPSED</p>
+            <p style={{ fontSize: "clamp(16px, 2.5vw, 22px)" }} className="font-bold">{formatTime(elapsedTime)}</p>
           </div>
           <div className="text-center">
-            <p style={{ fontSize: "24px" }} className="font-bold mb-2">INTERVAL</p>
-            <p style={{ fontSize: "34px" }} className="font-bold">{state.currentSet}/{timer.sets}</p>
+            <p style={{ fontSize: "clamp(14px, 2vw, 18px)" }} className="font-bold mb-1">INTERVAL</p>
+            <p style={{ fontSize: "clamp(16px, 2.5vw, 22px)" }} className="font-bold">{state.currentSet}/{timer.sets}</p>
           </div>
           <div className="text-center">
-            <p style={{ fontSize: "24px" }} className="font-bold mb-2">REMAINING</p>
-            <p style={{ fontSize: "34px" }} className="font-bold">{formatTime(totalWorkoutDuration - elapsedTime)}</p>
+            <p style={{ fontSize: "clamp(14px, 2vw, 18px)" }} className="font-bold mb-1">REMAINING</p>
+            <p style={{ fontSize: "clamp(16px, 2.5vw, 22px)" }} className="font-bold">{formatTime(totalWorkoutDuration - elapsedTime)}</p>
           </div>
         </div>
       </div>
 
       {/* Main Content - Centered Exercise and Timer */}
-      <div className="flex flex-col items-center justify-center w-full max-w-3xl mb-2">
+      <div className="flex flex-col items-center justify-center w-full mb-2">
         {/* Current Exercise Name */}
-        <p style={{ fontSize: "34px" }} className="font-bold uppercase tracking-wider mb-2 opacity-100">
+        <p style={{ fontSize: "clamp(18px, 4vw, 24px)" }} className="font-bold uppercase tracking-wider mb-2 opacity-100">
           CURRENT INTERVAL
         </p>
 
         {/* Current Exercise Type */}
-        <p style={{ fontSize: "60px" }} className="font-bold uppercase tracking-widest mb-4">
+        <p style={{ fontSize: "clamp(28px, 7vw, 48px)" }} className="font-bold uppercase tracking-widest mb-3">
           {isResting ? "REST" : currentExercise.name}
         </p>
 
-        {/* Countdown Timer - Massively Large */}
+        {/* Countdown Timer - Responsive Large */}
         <div className="text-center mb-1">
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", fontSize: "160px", fontFamily: "'Futura', 'Trebuchet MS', sans-serif", fontWeight: "bold", lineHeight: "1" }}>
-            <span style={{ width: "240px", textAlign: "right" }}>
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", fontSize: "clamp(80px, 25vw, 140px)", fontFamily: "'Futura', 'Trebuchet MS', sans-serif", fontWeight: "bold", lineHeight: "1" }}>
+            <span style={{ textAlign: "right" }}>
               {String(Math.floor(state.timeRemaining / 60)).padStart(2, "0")}
             </span>
-            <span style={{ width: "100px", textAlign: "center" }}>:</span>
-            <span style={{ width: "240px", textAlign: "left" }}>
+            <span style={{ textAlign: "center" }}>:</span>
+            <span style={{ textAlign: "left" }}>
               {String(state.timeRemaining % 60).padStart(2, "0")}
             </span>
           </div>
@@ -288,74 +288,66 @@ export function TimerDisplay({ timer, onComplete, onBack }: TimerDisplayProps) {
       </div>
 
       {/* Controls - Under Timer */}
-      <div className="flex justify-center items-center mb-0" style={{ gap: "8px", maxWidth: "500px", marginTop: "2px" }}>
+      <div className="flex justify-center items-center mb-0" style={{ gap: "clamp(4px, 2vw, 8px)", maxWidth: "100%", marginTop: "2px" }}>
         {/* Close Button */}
         <button
           onClick={onBack}
-          style={{ width: "80px", height: "80px", fontSize: "50px", fontWeight: "900", lineHeight: "1", fontFamily: "'Futura', 'Trebuchet MS', sans-serif", borderColor: isResting ? "#000000" : getTextColor(currentExerciseColor), color: isResting ? "#000000" : getTextColor(currentExerciseColor) }}
+          style={{ width: "clamp(50px, 12vw, 60px)", height: "clamp(50px, 12vw, 60px)", fontSize: "clamp(24px, 6vw, 32px)", fontWeight: "900", lineHeight: "1", fontFamily: "'Futura', 'Trebuchet MS', sans-serif", borderColor: isResting ? "#000000" : getTextColor(currentExerciseColor), color: isResting ? "#000000" : getTextColor(currentExerciseColor) }}
           className="rounded-full border-4 bg-transparent flex items-center justify-center hover:opacity-70 transition-opacity"
           title="Close"
         >
-          ✕
+          ×
         </button>
 
         {/* Skip Backward Button */}
         <button
           onClick={skipBackward}
-          style={{ width: "80px", height: "80px", fontSize: "50px", lineHeight: "1", fontFamily: "'Futura', 'Trebuchet MS', sans-serif", borderColor: isResting ? "#000000" : getTextColor(currentExerciseColor), color: isResting ? "#000000" : getTextColor(currentExerciseColor) }}
+          style={{ width: "clamp(50px, 12vw, 60px)", height: "clamp(50px, 12vw, 60px)", fontSize: "clamp(24px, 6vw, 32px)", lineHeight: "1", fontFamily: "'Futura', 'Trebuchet MS', sans-serif", borderColor: isResting ? "#000000" : getTextColor(currentExerciseColor), color: isResting ? "#000000" : getTextColor(currentExerciseColor) }}
           className="rounded-full border-4 bg-transparent flex items-center justify-center hover:opacity-70 transition-opacity"
           title="Skip Backward"
         >
-          <span style={{ display: "inline-block", transform: "translateY(-4px)" }}>
-            ⏮
-          </span>
+          ≪
         </button>
 
         {/* Play/Pause Button */}
         <button
           onClick={toggleTimer}
-          style={{ width: "80px", height: "80px", fontSize: "50px", lineHeight: "1", fontFamily: "'Futura', 'Trebuchet MS', sans-serif", borderColor: isResting ? "#000000" : getTextColor(currentExerciseColor), color: isResting ? "#000000" : getTextColor(currentExerciseColor) }}
+          style={{ width: "clamp(50px, 12vw, 60px)", height: "clamp(50px, 12vw, 60px)", fontSize: "clamp(24px, 6vw, 32px)", lineHeight: "1", fontFamily: "'Futura', 'Trebuchet MS', sans-serif", borderColor: isResting ? "#000000" : getTextColor(currentExerciseColor), color: isResting ? "#000000" : getTextColor(currentExerciseColor) }}
           className="rounded-full border-4 bg-transparent flex items-center justify-center hover:opacity-70 transition-opacity"
           title={!state.isRunning ? "Start" : state.isPaused ? "Resume" : "Pause"}
         >
-          <span style={{ display: "inline-block", transform: state.isRunning && !state.isPaused ? "translate(0px, -2px)" : "translate(3px, -1px)" }}>
-            {!state.isRunning ? "▶" : state.isPaused ? "▶" : "⏸"}
-          </span>
+          {!state.isRunning ? "▶" : state.isPaused ? "▶" : "◼"}
         </button>
 
         {/* Skip Forward Button */}
         <button
           onClick={skipForward}
-          style={{ width: "80px", height: "80px", fontSize: "50px", lineHeight: "1", fontFamily: "'Futura', 'Trebuchet MS', sans-serif", borderColor: isResting ? "#000000" : getTextColor(currentExerciseColor), color: isResting ? "#000000" : getTextColor(currentExerciseColor) }}
+          style={{ width: "clamp(50px, 12vw, 60px)", height: "clamp(50px, 12vw, 60px)", fontSize: "clamp(24px, 6vw, 32px)", lineHeight: "1", fontFamily: "'Futura', 'Trebuchet MS', sans-serif", borderColor: isResting ? "#000000" : getTextColor(currentExerciseColor), color: isResting ? "#000000" : getTextColor(currentExerciseColor) }}
           className="rounded-full border-4 bg-transparent flex items-center justify-center hover:opacity-70 transition-opacity"
           title="Skip Forward"
         >
-          <span style={{ display: "inline-block", transform: "translateY(-4px)" }}>
-            ⏭
-          </span>
+          ≫
         </button>
 
         {/* Reset Button */}
         <button
           onClick={stopTimer}
-          style={{ width: "80px", height: "80px", fontSize: "75px", lineHeight: "1", fontFamily: "'Futura', 'Trebuchet MS', sans-serif", borderColor: isResting ? "#000000" : getTextColor(currentExerciseColor), color: isResting ? "#000000" : getTextColor(currentExerciseColor) }}
+          style={{ width: "clamp(50px, 12vw, 60px)", height: "clamp(50px, 12vw, 60px)", fontSize: "clamp(24px, 6vw, 32px)", lineHeight: "1", fontFamily: "'Futura', 'Trebuchet MS', sans-serif", borderColor: isResting ? "#000000" : getTextColor(currentExerciseColor), color: isResting ? "#000000" : getTextColor(currentExerciseColor) }}
           className="rounded-full border-4 bg-transparent flex items-center justify-center hover:opacity-70 transition-opacity"
           title="Reset"
         >
-          <span style={{ display: "inline-block", transform: "translateY(-8px)" }}>
-            ↻
-          </span>
+          ↻
         </button>
       </div>
 
       {/* Next Exercise Preview - Bottom */}
       {state.currentExerciseIndex < totalExercises - 1 && (
-        <div className="text-center border-4 px-8 flex-shrink-0" style={{ width: "500px", borderRadius: "20px", paddingTop: "16px", paddingBottom: "16px", backgroundColor: timer.exercises[state.currentExerciseIndex + 1].color || "#000000", borderColor: "#000000", marginTop: "4px" }}>
-          <p style={{ fontSize: "24px", color: getTextColor(timer.exercises[state.currentExerciseIndex + 1].color || "#000000") }} className="font-bold uppercase tracking-wider mb-1 opacity-100">UP NEXT...</p>
-          <p style={{ fontSize: "34px", color: getTextColor(timer.exercises[state.currentExerciseIndex + 1].color || "#000000") }} className="font-bold">
+        <div className="text-center border-4 flex-shrink-0" style={{ width: "clamp(280px, 100%, 500px)", borderRadius: "20px", paddingTop: "12px", paddingBottom: "12px", paddingLeft: "16px", paddingRight: "16px", backgroundColor: timer.exercises[state.currentExerciseIndex + 1].color || "#000000", borderColor: "#000000", marginTop: "4px", maxWidth: "90vw" }}>
+          <p style={{ fontSize: "clamp(14px, 3vw, 18px)", color: getTextColor(timer.exercises[state.currentExerciseIndex + 1].color || "#000000") }} className="font-bold uppercase tracking-wider mb-1 opacity-100">UP NEXT...</p>
+          <p style={{ fontSize: "clamp(20px, 5vw, 28px)", color: getTextColor(timer.exercises[state.currentExerciseIndex + 1].color || "#000000") }} className="font-bold">
             {timer.exercises[state.currentExerciseIndex + 1].name}
           </p>
-          <p style={{ fontSize: "34px", color: getTextColor(timer.exercises[state.currentExerciseIndex + 1].color || "#000000") }} className="font-semibold mt-1">
+          <p style={{ fontSize: "clamp(20px, 5vw, 28px)", color: getTextColor(timer.exercises[state.currentExerciseIndex + 1].color || "#000000") }} className="font-semibold mt-1">
             :{timer.exercises[state.currentExerciseIndex + 1].duration}
           </p>
         </div>
