@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Timer, Exercise } from "@/types/timer";
 import { v4 as uuidv4 } from "uuid";
-import { getNextExerciseColor, getUnusedColor } from "@/utils/colors";
+import { getUnusedColor } from "@/utils/colors";
 
 interface TimerFormProps {
   onSave: (timer: Timer) => void;
